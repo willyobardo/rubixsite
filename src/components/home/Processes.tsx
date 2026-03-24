@@ -5,9 +5,9 @@ import { AnimateInView, StaggerContainer, StaggerItem } from '@/components/ui/An
 import type { ProcessesData } from '@/types/home'
 
 const ICONS: Record<string, string> = {
-  heart:    'http://localhost:3845/assets/134898efa677359e80894689c9f7135b904c65e5.svg',
-  thumbsup: 'http://localhost:3845/assets/000ae333b14f269c69a8c5782721ec03fe6efc4f.svg',
-  lifebuoy: 'http://localhost:3845/assets/9e47a6082f238352438729547825f383229220ed.svg',
+  heart:    '/figma/134898efa677359e80894689c9f7135b904c65e5.svg',
+  thumbsup: '/figma/000ae333b14f269c69a8c5782721ec03fe6efc4f.svg',
+  lifebuoy: '/figma/9e47a6082f238352438729547825f383229220ed.svg',
 }
 
 interface ProcessesProps {

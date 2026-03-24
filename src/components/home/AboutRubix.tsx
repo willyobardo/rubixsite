@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { AnimateInView } from '@/components/ui/AnimateInView'
 import type { AboutRubixData } from '@/types/home'
 
-const PHOTO = 'http://localhost:3845/assets/9d3c2d9646eb4820c8c1da18df285ad4e208844d.png'
+const PHOTO = '/figma/9d3c2d9646eb4820c8c1da18df285ad4e208844d.png'
 const ease = [0.25, 0.46, 0.45, 0.94] as const
 
 interface AboutRubixProps {

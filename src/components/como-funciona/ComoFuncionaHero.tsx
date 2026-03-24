@@ -6,9 +6,9 @@ import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
 const ASSETS = {
-  bgTexture: 'http://localhost:3845/assets/12f130da548ce0042ef94f1e7712ddfba089d2c0.png',
-  illustration: 'http://localhost:3845/assets/b29bfe307292e9ac9eeec648aaf189322c9d7f8c.png',
-  yellowCircle: 'http://localhost:3845/assets/27f60c0ff6bd9f1c8b3343e54fc4bc300663f555.svg',
+  bgTexture: '/figma/12f130da548ce0042ef94f1e7712ddfba089d2c0.png',
+  illustration: '/figma/b29bfe307292e9ac9eeec648aaf189322c9d7f8c.png',
+  yellowCircle: '/figma/27f60c0ff6bd9f1c8b3343e54fc4bc300663f555.svg',
 }
 
 const ease = [0.25, 0.46, 0.45, 0.94] as const

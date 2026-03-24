@@ -49,7 +49,7 @@ export default async function OQueEPage() {
                   parte da leitura estratégica do território antes da ativação.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/96327171335251d48bb648085673fa745c4713da.png"
+              photoSrc="/figma/96327171335251d48bb648085673fa745c4713da.png"
               photoAlt="Estratégia de mídia territorial Rubix"
               photoSide="right"
             />
@@ -68,7 +68,7 @@ export default async function OQueEPage() {
                   Cada decisão é orientada por análise e mensuração.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/48f466d693005c33c0c4392ab0b47d9bc7427f7c.png"
+              photoSrc="/figma/48f466d693005c33c0c4392ab0b47d9bc7427f7c.png"
               photoAlt="Operação estratégica de dados Rubix"
               photoSide="left"
               mobilePhotoBottom
@@ -86,7 +86,7 @@ export default async function OQueEPage() {
                   de negócio. Transformamos esse contexto em inteligência aplicada à mídia.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/d7aa8a22d7cc2f8315913aae8540d3c0d0dcb15e.png"
+              photoSrc="/figma/d7aa8a22d7cc2f8315913aae8540d3c0d0dcb15e.png"
               photoAlt="Inteligência territorial Rubix"
               photoSide="right"
             />
@@ -114,7 +114,7 @@ export default async function OQueEPage() {
                   aplicada à tomada de decisão.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/d923d11819c9faceccc1adfba97ed2845b47e50e.png"
+              photoSrc="/figma/d923d11819c9faceccc1adfba97ed2845b47e50e.png"
               photoAlt="Impacto Rubix em estratégias de mídia"
               photoSide="right"
               cta={{ label: 'Nossas aplicações', href: '/aplicacoes' }}

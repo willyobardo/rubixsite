@@ -3,8 +3,8 @@
 import Image from 'next/image'
 import { AnimateInView, StaggerContainer, StaggerItem } from '@/components/ui/AnimateInView'
 
-const ELLIPSE = 'http://localhost:3845/assets/ab9ec5274748bd859cfdbf0b076d87ed6839188e.svg'
-const ICON_ARROW = 'http://localhost:3845/assets/a9a02fcce0e3fd102f28905f13e5f4d28a8d93bc.svg'
+const ELLIPSE = '/figma/ab9ec5274748bd859cfdbf0b076d87ed6839188e.svg'
+const ICON_ARROW = '/figma/a9a02fcce0e3fd102f28905f13e5f4d28a8d93bc.svg'
 
 const steps = [
   {

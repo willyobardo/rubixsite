@@ -52,7 +52,7 @@ export default async function TermosDeUsoPage() {
             title="Termos de Uso"
             subtitle="Estes Termos de Uso regulam o acesso e a utilização do site da Rubix. Ao navegar neste site, o usuário concorda com as condições descritas neste documento."
             cta={{ label: 'Fale com a Rubix', href: '#contato' }}
-            illustrationSrc="http://localhost:3845/assets/c8e199364ab66d23d7097a45f33036201cb16bbf.png"
+            illustrationSrc="/figma/c8e199364ab66d23d7097a45f33036201cb16bbf.png"
             illustrationAlt="Termos de Uso Rubix"
             illustrationWidth={780}
             illustrationHeight={480}

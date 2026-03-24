@@ -52,7 +52,7 @@ export default async function PoliticaDePrivacidadePage() {
             title="Política de Privacidade"
             subtitle="A Rubix valoriza a transparência e o respeito à privacidade. Esta Política de Privacidade descreve como coletamos, utilizamos, armazenamos e protegemos dados pessoais em conformidade com a Lei Geral de Proteção de Dados (Lei nº 13.709/2018 - LGPD)."
             cta={{ label: 'Fale com a Rubix', href: '#contato' }}
-            illustrationSrc="http://localhost:3845/assets/014ae966f22baa1fea5b563192e345025108e71c.png"
+            illustrationSrc="/figma/014ae966f22baa1fea5b563192e345025108e71c.png"
             illustrationAlt="Política de Privacidade Rubix"
           />
 

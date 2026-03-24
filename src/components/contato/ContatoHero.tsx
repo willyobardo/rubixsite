@@ -5,8 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-const BG_TEXTURE = 'http://localhost:3845/assets/12f130da548ce0042ef94f1e7712ddfba089d2c0.png'
-const ILLUSTRATION = 'http://localhost:3845/assets/de625a0276f1ece4e40a6082e8e69a0520e982fe.png'
+const BG_TEXTURE = '/figma/12f130da548ce0042ef94f1e7712ddfba089d2c0.png'
+const ILLUSTRATION = '/figma/de625a0276f1ece4e40a6082e8e69a0520e982fe.png'
 const ease = [0.25, 0.46, 0.45, 0.94] as const
 
 const inputClass =

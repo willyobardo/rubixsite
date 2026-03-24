@@ -22,7 +22,7 @@ export function Header() {
         {/* Logo */}
         <Link href="/" aria-label="Rubix — página inicial">
           <Image
-            src="http://localhost:3845/assets/9acc9bc6f20bd07d46e3c894ddbcf15d793c8548.png"
+            src="/figma/9acc9bc6f20bd07d46e3c894ddbcf15d793c8548.png"
             alt="Rubix"
             width={134}
             height={49}

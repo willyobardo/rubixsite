@@ -3,8 +3,8 @@
 import Image from 'next/image'
 import { AnimateInView, StaggerContainer, StaggerItem } from '@/components/ui/AnimateInView'
 
-const ICON_ARROW = 'http://localhost:3845/assets/a9a02fcce0e3fd102f28905f13e5f4d28a8d93bc.svg'
-const ICON_ARROW_ALT = 'http://localhost:3845/assets/1d43353685262cf7a16447779f0ce9da6c066c0f.svg'
+const ICON_ARROW = '/figma/a9a02fcce0e3fd102f28905f13e5f4d28a8d93bc.svg'
+const ICON_ARROW_ALT = '/figma/1d43353685262cf7a16447779f0ce9da6c066c0f.svg'
 
 const pillars = [
   { label: 'Leitura territorial\nestratégica', icon: ICON_ARROW },

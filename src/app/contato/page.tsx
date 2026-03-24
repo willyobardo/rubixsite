@@ -42,7 +42,7 @@ export default async function ContatoPage() {
                   <p><strong className="font-semibold text-brand-navy">Endereço:</strong> Rua Carvalho de Mendonça, 12<br />Copacabana - Rio de Janeiro - RJ</p>
                 </>
               }
-              photoSrc="http://localhost:3845/assets/47aad91bae8c1d46d1605d9b497ec9b386b68952.png"
+              photoSrc="/figma/47aad91bae8c1d46d1605d9b497ec9b386b68952.png"
               photoAlt="Contato direto Rubix"
               photoSide="left"
             />
@@ -58,7 +58,7 @@ export default async function ContatoPage() {
                   aplicada à tomada de decisão.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/c989b541d54fd3d0994c2a89d86569233d823ff3.png"
+              photoSrc="/figma/c989b541d54fd3d0994c2a89d86569233d823ff3.png"
               photoAlt="Onde a Rubix cria impacto — precisão territorial"
               photoSide="right"
               cta={{ label: 'Conheça a Rubix', href: '/' }}

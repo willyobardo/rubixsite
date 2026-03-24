@@ -20,7 +20,7 @@ import { SplitSection } from '@/components/ui/SplitSection'
 import { AnimateInView } from '@/components/ui/AnimateInView'
 import Image from 'next/image'
 
-const ICON_STAGE = 'http://localhost:3845/assets/68ea1f33db7016f2e9f930c8d8d1c04c7d3a7f7f.svg'
+const ICON_STAGE = '/figma/68ea1f33db7016f2e9f930c8d8d1c04c7d3a7f7f.svg'
 
 const stages = [
   {
@@ -76,7 +76,7 @@ export default async function PlataformaPage() {
                   contínua.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/c5b0d4b8b5efa498d99b7a617b295fce7a39561f.png"
+              photoSrc="/figma/c5b0d4b8b5efa498d99b7a617b295fce7a39561f.png"
               photoAlt="Fonte qualificada — captação de sinais de localização móvel"
               photoSide="right"
             />
@@ -92,7 +92,7 @@ export default async function PlataformaPage() {
                   partir de contexto real.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/48efad3e6a6659e75b3b7f02eecd4de3a309a7d3.png"
+              photoSrc="/figma/48efad3e6a6659e75b3b7f02eecd4de3a309a7d3.png"
               photoAlt="Audiências exclusivas — segmentação geolocalizada"
               photoSide="left"
               mobilePhotoBottom
@@ -109,7 +109,7 @@ export default async function PlataformaPage() {
                   estratégico.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/9e546b46c40bcae6d4e1bea347ff731ed448690b.png"
+              photoSrc="/figma/9e546b46c40bcae6d4e1bea347ff731ed448690b.png"
               photoAlt="Campanhas mais eficientes — conexão entre território e mídia programática"
               photoSide="right"
             />
@@ -195,7 +195,7 @@ export default async function PlataformaPage() {
                   aplicada à tomada de decisão.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/ae1c2f509952031ec3c75738688692dd60374068.png"
+              photoSrc="/figma/ae1c2f509952031ec3c75738688692dd60374068.png"
               photoAlt="Onde a Rubix cria impacto — precisão territorial"
               photoSide="right"
               cta={{ label: 'Fale com a Rubix', href: '#contato' }}

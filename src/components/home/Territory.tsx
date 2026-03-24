@@ -4,7 +4,7 @@ import Image from 'next/image'
 import { AnimateInView, StaggerContainer, StaggerItem } from '@/components/ui/AnimateInView'
 import type { TerritoryData } from '@/types/home'
 
-const ICON_ARROW = 'http://localhost:3845/assets/a9a02fcce0e3fd102f28905f13e5f4d28a8d93bc.svg'
+const ICON_ARROW = '/figma/a9a02fcce0e3fd102f28905f13e5f4d28a8d93bc.svg'
 
 interface TerritoryProps {
   data: TerritoryData

@@ -6,7 +6,7 @@ import { motion } from 'framer-motion'
 import { AnimateInView } from '@/components/ui/AnimateInView'
 import type { EfficiencyData } from '@/types/home'
 
-const PHOTO = 'http://localhost:3845/assets/b6feb4670071629b0544fb88a1a00f7828741301.png'
+const PHOTO = '/figma/b6feb4670071629b0544fb88a1a00f7828741301.png'
 const ease = [0.25, 0.46, 0.45, 0.94] as const
 
 interface EfficiencyProps {

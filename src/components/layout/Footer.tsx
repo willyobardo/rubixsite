@@ -11,9 +11,9 @@ const legalHrefs: Record<string, string> = {
 
 const ASSETS = {
   instagram: '/icons/instagram.svg',
-  linkedinVector: 'http://localhost:3845/assets/6a570c2acd5d51429500b3c652658fc0d618c8e8.svg',
-  arrowCircle: 'http://localhost:3845/assets/6da23bbe7b12eb448871628e490385b7506adda6.svg',
-  arrowIcon: 'http://localhost:3845/assets/9ab1b2c37fcc027bd8b54fbe880398bd6ebadbac.svg',
+  linkedinVector: '/figma/6a570c2acd5d51429500b3c652658fc0d618c8e8.svg',
+  arrowCircle: '/figma/6da23bbe7b12eb448871628e490385b7506adda6.svg',
+  arrowIcon: '/figma/9ab1b2c37fcc027bd8b54fbe880398bd6ebadbac.svg',
 }
 
 interface FooterProps {

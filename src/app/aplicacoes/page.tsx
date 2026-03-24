@@ -21,8 +21,8 @@ import { AnimateInView } from '@/components/ui/AnimateInView'
 import Image from 'next/image'
 
 const ICONS = {
-  default: 'http://localhost:3845/assets/68ea1f33db7016f2e9f930c8d8d1c04c7d3a7f7f.svg',
-  leads: 'http://localhost:3845/assets/3c275ce3ee0779644ae7ee813d4e7f517a0730bc.svg',
+  default: '/figma/68ea1f33db7016f2e9f930c8d8d1c04c7d3a7f7f.svg',
+  leads: '/figma/3c275ce3ee0779644ae7ee813d4e7f517a0730bc.svg',
 }
 
 const capabilities = [
@@ -85,7 +85,7 @@ export default async function AplicacoesPage() {
                   aumento de vendas.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/7151ac1fd73812c11aef5e70da42568bf0c91e23.png"
+              photoSrc="/figma/7151ac1fd73812c11aef5e70da42568bf0c91e23.png"
               photoAlt="Aplicação Rubix para varejo"
               photoSide="right"
             />
@@ -101,7 +101,7 @@ export default async function AplicacoesPage() {
                   qualificando audiência com base em deslocamento e comportamento regional.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/ad882487445f120642e680df0787f3f8ac28927c.png"
+              photoSrc="/figma/ad882487445f120642e680df0787f3f8ac28927c.png"
               photoAlt="Aplicação Rubix para automotivo"
               photoSide="left"
               mobilePhotoBottom
@@ -118,7 +118,7 @@ export default async function AplicacoesPage() {
                   fluxo, interesse e potencial de conversão.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/fb31b029a6de0901b989dc2ac42d8be755aeebfa.png"
+              photoSrc="/figma/fb31b029a6de0901b989dc2ac42d8be755aeebfa.png"
               photoAlt="Aplicação Rubix para turismo"
               photoSide="right"
             />
@@ -134,7 +134,7 @@ export default async function AplicacoesPage() {
                   campanhas no momento e local mais estratégicos.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/94bfe863c215a2de879eec0b9ad01c42b9bdf51d.png"
+              photoSrc="/figma/94bfe863c215a2de879eec0b9ad01c42b9bdf51d.png"
               photoAlt="Aplicação Rubix para oportunidades de mercado"
               photoSide="left"
               mobilePhotoBottom
@@ -184,7 +184,7 @@ export default async function AplicacoesPage() {
               {/* Imagem entre as linhas — mobile */}
               <div className="my-8 relative overflow-hidden rounded-[20px]" style={{ aspectRatio: '600/480' }}>
                 <Image
-                  src="http://localhost:3845/assets/d8a5b660aecad0b641e40234eef4132a9a039117.png"
+                  src="/figma/d8a5b660aecad0b641e40234eef4132a9a039117.png"
                   alt="Capacidades Rubix"
                   fill
                   sizes="100vw"
@@ -251,7 +251,7 @@ export default async function AplicacoesPage() {
               >
                 <div className="absolute inset-0 rounded-tl-[50px] rounded-bl-[50px] overflow-hidden">
                   <Image
-                    src="http://localhost:3845/assets/d8a5b660aecad0b641e40234eef4132a9a039117.png"
+                    src="/figma/d8a5b660aecad0b641e40234eef4132a9a039117.png"
                     alt="Capacidades Rubix"
                     fill
                     sizes="480px"
@@ -273,7 +273,7 @@ export default async function AplicacoesPage() {
                   aplicada à tomada de decisão.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/361b2fe29cafdb314835110ffb379385932234aa.png"
+              photoSrc="/figma/361b2fe29cafdb314835110ffb379385932234aa.png"
               photoAlt="Onde a Rubix cria impacto — precisão territorial"
               photoSide="right"
               cta={{ label: 'Conheça a Rubix', href: '#contato' }}

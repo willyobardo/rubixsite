@@ -39,7 +39,7 @@ export default async function ComoFuncionaPage() {
                   estruturado, onde cada decisão é orientada por contexto real e eficiência de investimento.
                 </p>
               }
-              photoSrc="http://localhost:3845/assets/384a2832f04f70a66485f7999e0d297bb3431f0e.png"
+              photoSrc="/figma/384a2832f04f70a66485f7999e0d297bb3431f0e.png"
               photoAlt="Processo Rubix — governança e performance"
               photoSide="right"
               cta={{ label: 'Fale com a Rubix', href: '#contato' }}

@@ -5,8 +5,8 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
 
-const BG_TEXTURE = 'http://localhost:3845/assets/12f130da548ce0042ef94f1e7712ddfba089d2c0.png'
-const YELLOW_CIRCLE = 'http://localhost:3845/assets/27f60c0ff6bd9f1c8b3343e54fc4bc300663f555.svg'
+const BG_TEXTURE = '/figma/12f130da548ce0042ef94f1e7712ddfba089d2c0.png'
+const YELLOW_CIRCLE = '/figma/27f60c0ff6bd9f1c8b3343e54fc4bc300663f555.svg'
 const ease = [0.25, 0.46, 0.45, 0.94] as const
 
 interface InnerPageHeroProps {
