@@ -1,0 +1,88 @@
+{
+  "hero": {
+    "title": "Soluções de mídia, dados e inteligência territorial",
+    "subtitle": "Integramos leitura estratégica do território, inteligência de dados e mídia programática para gerar eficiência, controle e crescimento mensurável."
+  },
+  "tradingDesk": {
+    "title": "Trading Desk & Mídia Programática",
+    "subtitle": "Planejamento, ativação e otimização de campanhas digitais com foco em audiência qualificada, controle operacional e resultado consistente.",
+    "features": [
+      "Display,\nVídeo, Mobile\ne CTV",
+      "Integração\ncom principais\nDSPs",
+      "Controle de\nfrequência e\nimpacto",
+      "Brand safety e\ntransparência\noperacional"
+    ]
+  },
+  "territory": {
+    "title": "Da leitura do território à ativação digital",
+    "subtitle": "Transformamos comportamento territorial em inteligência aplicada à mídia.",
+    "pillars": ["Território", "Dados", "Audiência", "Mídia", "Resultados"]
+  },
+  "highlights": {
+    "title": "Highlights",
+    "items": [
+      {
+        "value": "+ 27%",
+        "description": "Ganho médio em eficiência territorial."
+      },
+      {
+        "value": "+ 3,5x",
+        "description": "Aumento em conversões qualificadas."
+      },
+      {
+        "value": "+ 48%",
+        "description": "Crescimento de visitas físicas ou presença regional."
+      }
+    ]
+  },
+  "efficiency": {
+    "title": "Mais de 30% de eficiência de mídia",
+    "subtitle": "Ao integrar inteligência territorial à ativação programática, reduzimos dispersão de investimento e ampliamos a qualificação do impacto.",
+    "cta": "Fale com a Rubix"
+  },
+  "processes": {
+    "title": "Nossos processos",
+    "items": [
+      {
+        "icon": "heart",
+        "title": "Inteligência de Dados",
+        "description": "Leitura estratégica do território e comportamento."
+      },
+      {
+        "icon": "thumbsup",
+        "title": "Audiência",
+        "description": "Estruturação de públicos qualificados com base em contexto real."
+      },
+      {
+        "icon": "lifebuoy",
+        "title": "Resultados",
+        "description": "Ativação orientada por performance e otimização contínua."
+      }
+    ]
+  },
+  "ctaBanner": {
+    "title": "Pronto para operar mídia com mais inteligência?",
+    "subtitle": "Converse com a Rubix e descubra como estruturar sua mídia com inteligência territorial integrada.",
+    "cta": "Fale com a Rubix"
+  },
+  "aboutRubix": {
+    "title": "Rubix é a operação especializada em mídia e inteligência territorial do ecossistema ZH3",
+    "subtitle": "Atuamos com governança, dados estruturados e ativação programática orientada por contexto real de mercado.",
+    "cta": "Conheça a Rubix"
+  },
+  "footer": {
+    "address": {
+      "cities": "Rio de Janeiro  |  São Paulo  |  Brasília  |  Fortaleza",
+      "phone": "+55 21 98132-8475",
+      "email": "contato@rubix.com.br"
+    },
+    "legal": [
+      "Política de Privacidade",
+      "Termos de Uso",
+      "LGPD",
+      "Política de Cookies"
+    ],
+    "copyright": "© 2026 Rubix. Todos os direitos reservados.\nUma empresa do ecossistema ZH3/Brasiliana",
+    "ctaLabel": "Fale conosco"
+  }
+}
