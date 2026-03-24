@@ -1,6 +1,20 @@
+import type { Metadata } from 'next'
 import { getHomeData } from '@/lib/content'
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
+
+export const metadata: Metadata = {
+  title: 'LGPD',
+  description:
+    'Saiba como a Rubix atua em conformidade com a Lei Geral de Proteção de Dados (LGPD): tratamento, compartilhamento, segurança e direitos do titular.',
+  alternates: { canonical: 'https://rubixdigital.com.br/lgpd' },
+  openGraph: {
+    title: 'LGPD | Rubix',
+    description:
+      'Saiba como a Rubix atua em conformidade com a Lei Geral de Proteção de Dados (LGPD): tratamento, compartilhamento, segurança e direitos do titular.',
+    url: 'https://rubixdigital.com.br/lgpd',
+  },
+}
 import { AnimateInView } from '@/components/ui/AnimateInView'
 
 const H2 = ({ children }: { children: React.ReactNode }) => (

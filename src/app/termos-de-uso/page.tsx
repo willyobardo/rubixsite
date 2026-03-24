@@ -1,4 +1,18 @@
+import type { Metadata } from 'next'
 import { getHomeData } from '@/lib/content'
+
+export const metadata: Metadata = {
+  title: 'Termos de Uso',
+  description:
+    'Leia os Termos de Uso do site da Rubix: condições de acesso, uso adequado, propriedade intelectual e limitações de responsabilidade.',
+  alternates: { canonical: 'https://rubixdigital.com.br/termos-de-uso' },
+  openGraph: {
+    title: 'Termos de Uso | Rubix',
+    description:
+      'Leia os Termos de Uso do site da Rubix: condições de acesso, uso adequado, propriedade intelectual e limitações de responsabilidade.',
+    url: 'https://rubixdigital.com.br/termos-de-uso',
+  },
+}
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { InnerPageHero } from '@/components/ui/InnerPageHero'

@@ -1,4 +1,18 @@
+import type { Metadata } from 'next'
 import { getHomeData } from '@/lib/content'
+
+export const metadata: Metadata = {
+  title: 'O que é Rubix',
+  description:
+    'Entenda o que é a Rubix: uma plataforma que une inteligência territorial, dados e mídia programática para transformar localização em audiência qualificada.',
+  alternates: { canonical: 'https://rubixdigital.com.br/o-que-e' },
+  openGraph: {
+    title: 'O que é Rubix',
+    description:
+      'Entenda o que é a Rubix: uma plataforma que une inteligência territorial, dados e mídia programática para transformar localização em audiência qualificada.',
+    url: 'https://rubixdigital.com.br/o-que-e',
+  },
+}
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { OQueEHero } from '@/components/o-que-e/OQueEHero'

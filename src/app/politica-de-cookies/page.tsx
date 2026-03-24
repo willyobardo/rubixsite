@@ -1,4 +1,18 @@
+import type { Metadata } from 'next'
 import { getHomeData } from '@/lib/content'
+
+export const metadata: Metadata = {
+  title: 'Política de Cookies',
+  description:
+    'Entenda como a Rubix utiliza cookies: tipos, finalidades e como gerenciar suas preferências de privacidade.',
+  alternates: { canonical: 'https://rubixdigital.com.br/politica-de-cookies' },
+  openGraph: {
+    title: 'Política de Cookies | Rubix',
+    description:
+      'Entenda como a Rubix utiliza cookies: tipos, finalidades e como gerenciar suas preferências de privacidade.',
+    url: 'https://rubixdigital.com.br/politica-de-cookies',
+  },
+}
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { InnerPageHero } from '@/components/ui/InnerPageHero'

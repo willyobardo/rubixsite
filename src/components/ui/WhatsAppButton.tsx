@@ -1,0 +1,33 @@
+'use client'
+
+export function WhatsAppButton() {
+  // Número ainda não definido — substituir por wa.me/55XXXXXXXXXXX quando disponível
+  const href = '#'
+
+  return (
+    <a
+      href={href}
+      aria-label="Fale conosco pelo WhatsApp"
+      className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 rounded-full shadow-lg transition-transform duration-200 hover:scale-110 focus:outline-none focus:ring-4 focus:ring-[#25D366]/40"
+      style={{ backgroundColor: '#25D366' }}
+    >
+      {/* WhatsApp icon */}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 32 32"
+        width="28"
+        height="28"
+        fill="white"
+        aria-hidden="true"
+      >
+        <path d="M16.003 2.667C8.637 2.667 2.667 8.637 2.667 16c0 2.363.627 4.677 1.816 6.703L2.667 29.333l6.784-1.784A13.253 13.253 0 0 0 16.003 29.333c7.363 0 13.33-5.97 13.33-13.333S23.366 2.667 16.003 2.667zm0 24.267a11.02 11.02 0 0 1-5.617-1.537l-.403-.24-4.027 1.057 1.073-3.92-.263-.413A10.96 10.96 0 0 1 5.06 16c0-6.04 4.907-10.947 10.943-10.947S26.947 9.96 26.947 16 22.04 26.934 16.003 26.934zm6.003-8.187c-.327-.163-1.937-.953-2.237-1.063-.3-.107-.517-.163-.733.163-.22.327-.843 1.063-.983 1.283-.143.22-.287.247-.61.083-.327-.163-1.38-.507-2.627-1.617-.97-.863-1.623-1.927-1.813-2.253-.19-.327-.02-.503.143-.667.147-.147.327-.383.49-.573.163-.19.217-.327.327-.543.107-.22.053-.407-.027-.573-.083-.163-.733-1.773-1.003-2.427-.267-.637-.537-.55-.733-.56-.19-.007-.41-.01-.627-.01s-.573.083-.873.407c-.3.327-1.143 1.117-1.143 2.723 0 1.607 1.17 3.16 1.333 3.38.163.22 2.303 3.52 5.58 4.94.78.337 1.387.537 1.863.69.783.25 1.493.213 2.057.13.627-.093 1.937-.793 2.21-1.557.273-.763.273-1.417.19-1.557-.08-.14-.3-.22-.627-.383z" />
+      </svg>
+
+      {/* Pulse ring */}
+      <span
+        className="absolute inset-0 rounded-full animate-ping opacity-30"
+        style={{ backgroundColor: '#25D366' }}
+      />
+    </a>
+  )
+}

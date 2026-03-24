@@ -1,4 +1,18 @@
+import type { Metadata } from 'next'
 import { getHomeData } from '@/lib/content'
+
+export const metadata: Metadata = {
+  title: 'Aplicações',
+  description:
+    'Veja como a Rubix atua no varejo, automotivo, turismo e mais setores com campanhas estratégicas baseadas em inteligência territorial e dados de localização.',
+  alternates: { canonical: 'https://rubixdigital.com.br/aplicacoes' },
+  openGraph: {
+    title: 'Aplicações | Rubix',
+    description:
+      'Veja como a Rubix atua no varejo, automotivo, turismo e mais setores com campanhas estratégicas baseadas em inteligência territorial e dados de localização.',
+    url: 'https://rubixdigital.com.br/aplicacoes',
+  },
+}
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { AplicacoesHero } from '@/components/aplicacoes/AplicacoesHero'
@@ -135,7 +149,7 @@ export default async function AplicacoesPage() {
                   className="font-[family-name:var(--font-plus-jakarta)] font-semibold text-brand-navy text-center"
                   style={{ fontSize: 'clamp(28px, 4vw, 48px)', lineHeight: 1.3 }}
                 >
-                  Onde criar campanhas estratégicas com a Rubix
+                  O que a Rubix entrega em cada campanha
                 </h2>
               </AnimateInView>
             </div>

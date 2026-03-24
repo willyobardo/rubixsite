@@ -1,4 +1,18 @@
+import type { Metadata } from 'next'
 import { getHomeData } from '@/lib/content'
+
+export const metadata: Metadata = {
+  title: 'Plataforma Device Tracker',
+  description:
+    'Conheça o Device Tracker da Rubix: tecnologia que captura audiências baseadas em localização real, transformando território em campanhas programáticas de alta precisão.',
+  alternates: { canonical: 'https://rubixdigital.com.br/plataforma' },
+  openGraph: {
+    title: 'Plataforma Device Tracker | Rubix',
+    description:
+      'Conheça o Device Tracker da Rubix: tecnologia que captura audiências baseadas em localização real, transformando território em campanhas programáticas de alta precisão.',
+    url: 'https://rubixdigital.com.br/plataforma',
+  },
+}
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { PlataformaHero } from '@/components/plataforma/PlataformaHero'

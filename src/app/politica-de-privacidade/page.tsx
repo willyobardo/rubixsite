@@ -1,4 +1,18 @@
+import type { Metadata } from 'next'
 import { getHomeData } from '@/lib/content'
+
+export const metadata: Metadata = {
+  title: 'Política de Privacidade',
+  description:
+    'Leia a Política de Privacidade da Rubix e saiba como coletamos, utilizamos, armazenamos e protegemos seus dados pessoais.',
+  alternates: { canonical: 'https://rubixdigital.com.br/politica-de-privacidade' },
+  openGraph: {
+    title: 'Política de Privacidade | Rubix',
+    description:
+      'Leia a Política de Privacidade da Rubix e saiba como coletamos, utilizamos, armazenamos e protegemos seus dados pessoais.',
+    url: 'https://rubixdigital.com.br/politica-de-privacidade',
+  },
+}
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { InnerPageHero } from '@/components/ui/InnerPageHero'

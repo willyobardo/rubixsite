@@ -1,4 +1,18 @@
+import type { Metadata } from 'next'
 import { getHomeData } from '@/lib/content'
+
+export const metadata: Metadata = {
+  title: 'Rubix — Soluções de mídia, dados e inteligência territorial',
+  description:
+    'Integramos leitura estratégica do território, inteligência de dados e mídia programática para gerar eficiência, controle e crescimento mensurável.',
+  alternates: { canonical: 'https://rubixdigital.com.br' },
+  openGraph: {
+    title: 'Rubix — Soluções de mídia, dados e inteligência territorial',
+    description:
+      'Integramos leitura estratégica do território, inteligência de dados e mídia programática para gerar eficiência, controle e crescimento mensurável.',
+    url: 'https://rubixdigital.com.br',
+  },
+}
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { Hero } from '@/components/home/Hero'

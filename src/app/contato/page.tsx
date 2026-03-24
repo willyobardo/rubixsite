@@ -1,4 +1,18 @@
+import type { Metadata } from 'next'
 import { getHomeData } from '@/lib/content'
+
+export const metadata: Metadata = {
+  title: 'Contato',
+  description:
+    'Entre em contato com a Rubix. Fale com nossa equipe para saber como podemos ajudar com inteligência territorial, mídia programática e estratégias de dados.',
+  alternates: { canonical: 'https://rubixdigital.com.br/contato' },
+  openGraph: {
+    title: 'Contato | Rubix',
+    description:
+      'Entre em contato com a Rubix. Fale com nossa equipe para saber como podemos ajudar com inteligência territorial, mídia programática e estratégias de dados.',
+    url: 'https://rubixdigital.com.br/contato',
+  },
+}
 import { Header } from '@/components/layout/Header'
 import { Footer } from '@/components/layout/Footer'
 import { SplitSection } from '@/components/ui/SplitSection'
