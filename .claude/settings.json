@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx tinacms:*)",
+      "Bash(TINA_PUBLIC_IS_LOCAL=true npx tinacms build)",
+      "Bash(TINA_BUILD_MODE=true npx tinacms build)"
+    ],
+    "additionalDirectories": [
+      "c:\\Users\\willyobardo\\Desktop\\www\\zh3site\\src\\app\\api\\tina",
+      "c:\\Users\\willyobardo\\Desktop\\www\\zh3site\\src\\app\\api\\auth\\[...nextauth]"
+    ]
+  }
+}
