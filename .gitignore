@@ -40,7 +40,5 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-# TinaCMS generated files (regenerados no build)
-/tina/__generated__
-/public/admin
+# TinaCMS
 /.tina

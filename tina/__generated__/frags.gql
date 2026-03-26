@@ -1,0 +1,68 @@
+fragment HomeParts on Home {
+  __typename
+  hero {
+    __typename
+    title
+    subtitle
+  }
+  tradingDesk {
+    __typename
+    title
+    subtitle
+    features
+  }
+  territory {
+    __typename
+    title
+    subtitle
+    pillars
+  }
+  highlights {
+    __typename
+    title
+    items {
+      __typename
+      value
+      description
+    }
+  }
+  efficiency {
+    __typename
+    title
+    subtitle
+    cta
+  }
+  processes {
+    __typename
+    title
+    items {
+      __typename
+      icon
+      title
+      description
+    }
+  }
+  ctaBanner {
+    __typename
+    title
+    subtitle
+    cta
+  }
+  aboutRubix {
+    __typename
+    title
+    subtitle
+    cta
+  }
+  footer {
+    __typename
+    address {
+      __typename
+      cities
+      phone
+      email
+    }
+    copyright
+    ctaLabel
+  }
+}
