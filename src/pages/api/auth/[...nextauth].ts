@@ -13,5 +13,21 @@ export default NextAuth(
         clientSecret: process.env.GITHUB_CLIENT_SECRET!,
       }),
     ],
+    overrides: {
+      callbacks: {
+        jwt: async ({ token, account }: any) => {
+          // Qualquer usuário autenticado pelo GitHub recebe role 'user'
+          if (account?.provider === 'github') {
+            token.role = 'user'
+          }
+          return token
+        },
+        session: async ({ session, token }: any) => {
+          session.user.role = token.role
+          session.user.sub = token.sub
+          return session
+        },
+      },
+    },
   })
 )

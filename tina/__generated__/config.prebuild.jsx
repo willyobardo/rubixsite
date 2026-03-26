@@ -1,11 +1,48 @@
 // tina/config.ts
-import { defineConfig } from "tinacms";
+import { defineConfig, AbstractAuthProvider } from "tinacms";
+var NextAuthProvider = class extends AbstractAuthProvider {
+  async authenticate() {
+    window.location.href = "/api/auth/signin";
+    return { access_token: "", id_token: "", refresh_token: "" };
+  }
+  async getToken() {
+    try {
+      const res = await fetch("/api/auth/session");
+      const session = await res.json();
+      if (!session?.user) return { id_token: null };
+      return { id_token: session.user.email || session.user.name || "authenticated" };
+    } catch {
+      return { id_token: null };
+    }
+  }
+  async getUser() {
+    try {
+      const res = await fetch("/api/auth/session");
+      const session = await res.json();
+      return session?.user || null;
+    } catch {
+      return null;
+    }
+  }
+  async logout() {
+    try {
+      const csrfRes = await fetch("/api/auth/csrf");
+      const { csrfToken } = await csrfRes.json();
+      await fetch("/api/auth/signout", {
+        method: "POST",
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
+        body: `csrfToken=${csrfToken}&callbackUrl=/`
+      });
+    } finally {
+      window.location.href = "/";
+    }
+  }
+};
 var config_default = defineConfig({
+  authProvider: new NextAuthProvider(),
   // Self-hosted: aponta para o próprio backend Next.js
   contentApiUrlOverride: "/api/tina/gql",
   branch: process.env.GITHUB_BRANCH || process.env.HEAD || "main",
-  clientId: process.env.TINA_PUBLIC_CLIENT_ID || null,
-  token: process.env.TINA_TOKEN || null,
   build: {
     outputFolder: "admin",
     publicFolder: "public"
