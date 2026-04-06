@@ -28,7 +28,7 @@ export async function sendContactEmail(
   try {
     await resend.emails.send({
       from: 'Formulário Rubix <onboarding@resend.dev>',
-      to: 'willy.trancoso@zh3.com.br',
+      to: 'data@zh3.com.br',
       replyTo: email,
       subject: `Novo contato: ${nome} — ${empresa}`,
       html: `
