@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useState, useActionState } from 'react'
+import { useRef, useState, useActionState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
@@ -30,6 +30,12 @@ export function ContatoHero() {
   const [phone, setPhone] = useState('')
   const [state, formAction, isPending] = useActionState(sendContactEmail, initialState)
   const sectionRef = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (state.status === 'success') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  }, [state.status])
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] })
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '10%'])
