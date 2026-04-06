@@ -54,9 +54,15 @@ export interface AboutRubixData {
   cta: string
 }
 
+export interface FooterLocation {
+  city: string
+  address: string
+  mapsUrl: string
+}
+
 export interface FooterData {
   address: {
-    cities: string
+    locations: FooterLocation[]
     phone: string
     email: string
   }

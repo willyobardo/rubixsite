@@ -72,7 +72,28 @@
   },
   "footer": {
     "address": {
-      "cities": "Rio de Janeiro  |  São Paulo  |  Brasília  |  Fortaleza",
+      "locations": [
+        {
+          "city": "São Paulo",
+          "address": "R. Itapeva, 286 - 7º andar - Bela Vista, São Paulo-SP, 01332-000",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=R.+Itapeva,+286,+Bela+Vista,+S%C3%A3o+Paulo,+SP"
+        },
+        {
+          "city": "Rio de Janeiro",
+          "address": "R. Carvalho de Mendonça, 12 - 3º andar - Copacabana, Rio de Janeiro-RJ, 20230-050",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=R.+Carvalho+de+Mendon%C3%A7a,+12,+Copacabana,+Rio+de+Janeiro,+RJ"
+        },
+        {
+          "city": "Brasília",
+          "address": "SCS Quadra 1 Bloco C Entrada 30 - S603, Brasília, DF, 70395-900",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=SCS+Quadra+1+Bloco+C,+Bras%C3%ADlia,+DF"
+        },
+        {
+          "city": "Fortaleza",
+          "address": "R. Vicente Linhares, 500 - 2º andar - Aldeota, Fortaleza-CE, 60135-270",
+          "mapsUrl": "https://www.google.com/maps/search/?api=1&query=R.+Vicente+Linhares,+500,+Aldeota,+Fortaleza,+CE"
+        }
+      ],
       "phone": "+55 21 98132-8475",
       "email": "contato@rubix.com.br"
     },

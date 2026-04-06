@@ -2,31 +2,6 @@ import Image from 'next/image'
 import Link from 'next/link'
 import type { FooterData } from '@/types/home'
 
-const SP_MAPS_URL = 'https://www.google.com/maps/search/?api=1&query=R.+Itapeva,+286,+S%C3%A3o+Paulo'
-
-function CitiesText({ cities }: { cities: string }) {
-  const parts = cities.split(/(São Paulo)/)
-  return (
-    <>
-      {parts.map((part, i) =>
-        part === 'São Paulo' ? (
-          <a
-            key={i}
-            href={SP_MAPS_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline hover:opacity-70 transition-opacity duration-150"
-          >
-            São Paulo
-          </a>
-        ) : (
-          <span key={i}>{part}</span>
-        )
-      )}
-    </>
-  )
-}
-
 const legalHrefs: Record<string, string> = {
   'Política de Privacidade': '/politica-de-privacidade',
   'Termos de Uso': '/termos-de-uso',
@@ -96,7 +71,21 @@ export function Footer({ data }: FooterProps) {
               style={{ fontSize: 'clamp(14px, 1.5vw, 18px)', lineHeight: '1.6' }}
             >
               <p className="font-bold">Endereço</p>
-              <p className="mt-1 font-normal"><CitiesText cities={data.address.cities} /></p>
+              <div className="mt-1 flex flex-col gap-3">
+                {data.address.locations.map((loc) => (
+                  <div key={loc.city}>
+                    <a
+                      href={loc.mapsUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-semibold underline hover:opacity-70 transition-opacity duration-150"
+                    >
+                      {loc.city}
+                    </a>
+                    <p className="font-normal">{loc.address}</p>
+                  </div>
+                ))}
+              </div>
 
               <p className="font-bold mt-4">Telefone</p>
               <p className="mt-1 font-normal">{data.address.phone}</p>
