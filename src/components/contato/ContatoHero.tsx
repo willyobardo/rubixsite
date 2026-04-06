@@ -1,9 +1,10 @@
 'use client'
 
-import { useRef, useState } from 'react'
+import { useRef, useState, useActionState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { motion, useScroll, useTransform } from 'framer-motion'
+import { sendContactEmail, type FormState } from '@/app/actions/sendEmail'
 
 const BG_TEXTURE = '/figma/12f130da548ce0042ef94f1e7712ddfba089d2c0.png'
 const ILLUSTRATION = '/figma/de625a0276f1ece4e40a6082e8e69a0520e982fe.png'
@@ -23,8 +24,11 @@ function maskPhone(value: string): string {
   return digits.replace(/(\d{2})(\d{5})(\d{0,4})/, '($1) $2-$3')
 }
 
+const initialState: FormState = { status: 'idle', message: '' }
+
 export function ContatoHero() {
   const [phone, setPhone] = useState('')
+  const [state, formAction, isPending] = useActionState(sendContactEmail, initialState)
   const sectionRef = useRef<HTMLElement>(null)
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] })
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
@@ -100,133 +104,157 @@ export function ContatoHero() {
             initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8, ease, delay: 0.4 }}
           >
-            <form className="flex flex-col gap-5">
-
-              <div>
-                <label htmlFor="nome" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
-                  Nome completo *
-                </label>
-                <input
-                  id="nome" name="nome" type="text" required
-                  placeholder="Seu nome completo"
-                  className={inputClass}
-                  style={{ borderRadius: '8px', fontSize: '15px' }}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="empresa" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
-                  Empresa *
-                </label>
-                <input
-                  id="empresa" name="empresa" type="text" required
-                  placeholder="Nome da empresa"
-                  className={inputClass}
-                  style={{ borderRadius: '8px', fontSize: '15px' }}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="cargo" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
-                  Cargo *
-                </label>
-                <input
-                  id="cargo" name="cargo" type="text" required
-                  placeholder="Seu cargo"
-                  className={inputClass}
-                  style={{ borderRadius: '8px', fontSize: '15px' }}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="email" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
-                  E-mail corporativo *
-                </label>
-                <input
-                  id="email" name="email" type="email" required
-                  placeholder="seu@empresa.com"
-                  className={inputClass}
-                  style={{ borderRadius: '8px', fontSize: '15px' }}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="telefone" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
-                  Telefone *
-                </label>
-                <input
-                  id="telefone" name="telefone" type="tel" required
-                  placeholder="(00) 00000-0000"
-                  value={phone}
-                  onChange={(e) => setPhone(maskPhone(e.target.value))}
-                  className={inputClass}
-                  style={{ borderRadius: '8px', fontSize: '15px' }}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="objetivos" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
-                  Objetivos da campanha
-                </label>
-                <textarea
-                  id="objetivos" name="objetivos" rows={4}
-                  placeholder="Descreva os objetivos da sua campanha..."
-                  className={textareaClass}
-                  style={{ borderRadius: '8px', fontSize: '15px' }}
-                />
-              </div>
-
-              <div>
-                <label htmlFor="mensagem" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
-                  Mensagem
-                </label>
-                <textarea
-                  id="mensagem" name="mensagem" rows={4}
-                  placeholder="Sua mensagem..."
-                  className={textareaClass}
-                  style={{ borderRadius: '8px', fontSize: '15px' }}
-                />
-              </div>
-
-              {/* Consent */}
-              <div className="flex items-start gap-3 mt-1">
-                <div className="relative flex-shrink-0 mt-1 w-6 h-6" style={{ borderRadius: '10px' }}>
-                  <input
-                    id="consent" name="consent" type="checkbox" required
-                    className="peer absolute inset-0 opacity-0 w-full h-full cursor-pointer z-10"
-                  />
-                  <div className="absolute inset-0 border-2 border-white/60 peer-checked:bg-brand-yellow peer-checked:border-brand-yellow transition-colors duration-150" style={{ borderRadius: '10px' }} />
-                  <svg className="absolute inset-0 m-auto w-3.5 h-3.5 text-brand-navy opacity-0 peer-checked:opacity-100 transition-opacity duration-150" viewBox="0 0 12 10" fill="none">
-                    <path d="M1 5l3.5 3.5L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+            {state.status === 'success' ? (
+              <div className="flex flex-col items-start gap-4 py-12">
+                <div className="w-14 h-14 rounded-full bg-brand-yellow flex items-center justify-center">
+                  <svg width="28" height="28" viewBox="0 0 24 24" fill="none">
+                    <path d="M5 13l4 4L19 7" stroke="#002f43" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round"/>
                   </svg>
                 </div>
-                <label htmlFor="consent" className="font-[family-name:var(--font-inter)] font-normal text-white/80 cursor-pointer" style={{ fontSize: '20px', lineHeight: 1.5 }}>
-                  Ao enviar este formulário, você concorda com nossa{' '}
-                  <Link href="/politica-de-privacidade" className="font-semibold text-white hover:text-brand-yellow transition-colors">
-                    Política de Privacidade
-                  </Link>{' '}
-                  e com o tratamento de dados conforme a LGPD.
-                </label>
+                <p className="font-[family-name:var(--font-plus-jakarta)] font-bold text-white" style={{ fontSize: 'clamp(22px, 2.5vw, 32px)', lineHeight: 1.3 }}>
+                  Mensagem enviada!
+                </p>
+                <p className="font-[family-name:var(--font-inter)] text-white/80" style={{ fontSize: '16px', lineHeight: 1.6 }}>
+                  {state.message}
+                </p>
               </div>
+            ) : (
+              <form action={formAction} className="flex flex-col gap-5">
 
-              <div className="mt-2">
-                <button
-                  type="submit"
-                  className="inline-flex items-center justify-center bg-brand-yellow text-brand-navy font-[family-name:var(--font-inter)] font-semibold cursor-pointer hover:brightness-95 transition-all duration-150"
-                  style={{
-                    height: '50px',
-                    padding: '0 24px',
-                    borderRadius: '3.51px',
-                    fontSize: '20px',
-                    minWidth: '200px',
-                    boxShadow: '0px 0.877px 1.755px rgba(0,0,0,0.05)',
-                  }}
-                >
-                  Enviar
-                </button>
-              </div>
+                <div>
+                  <label htmlFor="nome" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
+                    Nome completo *
+                  </label>
+                  <input
+                    id="nome" name="nome" type="text" required
+                    placeholder="Seu nome completo"
+                    className={inputClass}
+                    style={{ borderRadius: '8px', fontSize: '15px' }}
+                  />
+                </div>
 
-            </form>
+                <div>
+                  <label htmlFor="empresa" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
+                    Empresa *
+                  </label>
+                  <input
+                    id="empresa" name="empresa" type="text" required
+                    placeholder="Nome da empresa"
+                    className={inputClass}
+                    style={{ borderRadius: '8px', fontSize: '15px' }}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="cargo" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
+                    Cargo *
+                  </label>
+                  <input
+                    id="cargo" name="cargo" type="text" required
+                    placeholder="Seu cargo"
+                    className={inputClass}
+                    style={{ borderRadius: '8px', fontSize: '15px' }}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="email" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
+                    E-mail corporativo *
+                  </label>
+                  <input
+                    id="email" name="email" type="email" required
+                    placeholder="seu@empresa.com"
+                    className={inputClass}
+                    style={{ borderRadius: '8px', fontSize: '15px' }}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="telefone" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
+                    Telefone *
+                  </label>
+                  <input
+                    id="telefone" name="telefone" type="tel" required
+                    placeholder="(00) 00000-0000"
+                    value={phone}
+                    onChange={(e) => setPhone(maskPhone(e.target.value))}
+                    className={inputClass}
+                    style={{ borderRadius: '8px', fontSize: '15px' }}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="objetivos" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
+                    Objetivos da campanha
+                  </label>
+                  <textarea
+                    id="objetivos" name="objetivos" rows={4}
+                    placeholder="Descreva os objetivos da sua campanha..."
+                    className={textareaClass}
+                    style={{ borderRadius: '8px', fontSize: '15px' }}
+                  />
+                </div>
+
+                <div>
+                  <label htmlFor="mensagem" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
+                    Mensagem
+                  </label>
+                  <textarea
+                    id="mensagem" name="mensagem" rows={4}
+                    placeholder="Sua mensagem..."
+                    className={textareaClass}
+                    style={{ borderRadius: '8px', fontSize: '15px' }}
+                  />
+                </div>
+
+                {/* Consent */}
+                <div className="flex items-start gap-3 mt-1">
+                  <div className="relative flex-shrink-0 mt-1 w-6 h-6" style={{ borderRadius: '10px' }}>
+                    <input
+                      id="consent" name="consent" type="checkbox" required
+                      className="peer absolute inset-0 opacity-0 w-full h-full cursor-pointer z-10"
+                    />
+                    <div className="absolute inset-0 border-2 border-white/60 peer-checked:bg-brand-yellow peer-checked:border-brand-yellow transition-colors duration-150" style={{ borderRadius: '10px' }} />
+                    <svg className="absolute inset-0 m-auto w-3.5 h-3.5 text-brand-navy opacity-0 peer-checked:opacity-100 transition-opacity duration-150" viewBox="0 0 12 10" fill="none">
+                      <path d="M1 5l3.5 3.5L11 1" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    </svg>
+                  </div>
+                  <label htmlFor="consent" className="font-[family-name:var(--font-inter)] font-normal text-white/80 cursor-pointer" style={{ fontSize: '20px', lineHeight: 1.5 }}>
+                    Ao enviar este formulário, você concorda com nossa{' '}
+                    <Link href="/politica-de-privacidade" className="font-semibold text-white hover:text-brand-yellow transition-colors">
+                      Política de Privacidade
+                    </Link>{' '}
+                    e com o tratamento de dados conforme a LGPD.
+                  </label>
+                </div>
+
+                {/* Error message */}
+                {state.status === 'error' && (
+                  <p className="font-[family-name:var(--font-inter)] text-red-400 text-sm">
+                    {state.message}
+                  </p>
+                )}
+
+                <div className="mt-2">
+                  <button
+                    type="submit"
+                    disabled={isPending}
+                    className="inline-flex items-center justify-center bg-brand-yellow text-brand-navy font-[family-name:var(--font-inter)] font-semibold cursor-pointer hover:brightness-95 transition-all duration-150 disabled:opacity-60 disabled:cursor-not-allowed"
+                    style={{
+                      height: '50px',
+                      padding: '0 24px',
+                      borderRadius: '3.51px',
+                      fontSize: '20px',
+                      minWidth: '200px',
+                      boxShadow: '0px 0.877px 1.755px rgba(0,0,0,0.05)',
+                    }}
+                  >
+                    {isPending ? 'Enviando...' : 'Enviar'}
+                  </button>
+                </div>
+
+              </form>
+            )}
           </motion.div>
 
         </motion.div>
