@@ -71,21 +71,21 @@ export function Footer({ data }: FooterProps) {
               style={{ fontSize: 'clamp(14px, 1.5vw, 18px)', lineHeight: '1.6' }}
             >
               <p className="font-bold">Endereço</p>
-              <div className="mt-1 flex flex-col gap-3">
-                {data.address.locations.map((loc) => (
-                  <div key={loc.city}>
+              <p className="mt-1 font-normal">
+                {data.address.locations.map((loc, i) => (
+                  <span key={loc.city}>
+                    {i > 0 && '  |  '}
                     <a
                       href={loc.mapsUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="font-semibold underline hover:opacity-70 transition-opacity duration-150"
+                      className="underline hover:opacity-70 transition-opacity duration-150"
                     >
                       {loc.city}
                     </a>
-                    <p className="font-normal">{loc.address}</p>
-                  </div>
+                  </span>
                 ))}
-              </div>
+              </p>
 
               <p className="font-bold mt-4">Telefone</p>
               <p className="mt-1 font-normal">{data.address.phone}</p>
