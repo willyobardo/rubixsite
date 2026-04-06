@@ -1,8 +1,7 @@
 'use client'
 
 export function WhatsAppButton() {
-  // Número ainda não definido — substituir por wa.me/55XXXXXXXXXXX quando disponível
-  const href = '#'
+  const href = 'https://wa.me/5521981328475'
 
   return (
     <a
