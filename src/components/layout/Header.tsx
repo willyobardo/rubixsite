@@ -29,6 +29,7 @@ export function Header() {
             priority
             unoptimized
             className="w-[100px] lg:w-[134px] h-auto"
+            style={{ height: 'auto' }}
           />
         </Link>
 

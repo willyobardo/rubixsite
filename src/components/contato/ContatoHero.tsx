@@ -3,8 +3,18 @@
 import { useRef, useState, useActionState, useEffect } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import Script from 'next/script'
 import { motion, useScroll, useTransform } from 'framer-motion'
 import { sendContactEmail, type FormState } from '@/app/actions/sendEmail'
+
+declare global {
+  interface Window {
+    grecaptcha?: {
+      getResponse: () => string
+      reset: () => void
+    }
+  }
+}
 
 const BG_TEXTURE = '/figma/12f130da548ce0042ef94f1e7712ddfba089d2c0.png'
 const ILLUSTRATION = '/figma/de625a0276f1ece4e40a6082e8e69a0520e982fe.png'
@@ -28,19 +38,51 @@ const initialState: FormState = { status: 'idle', message: '' }
 
 export function ContatoHero() {
   const [phone, setPhone] = useState('')
+  const [errors, setErrors] = useState({ nome: '', empresa: '', cargo: '', email: '', telefone: '', captcha: '', consent: '' })
   const [state, formAction, isPending] = useActionState(sendContactEmail, initialState)
   const sectionRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
     if (state.status === 'success') {
       window.scrollTo({ top: 0, behavior: 'smooth' })
+      try { window.grecaptcha?.reset?.() } catch { /* widget not initialized */ }
     }
   }, [state.status])
+
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+  function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    const form = e.currentTarget
+    const get = (n: string) => (form.elements.namedItem(n) as HTMLInputElement).value
+
+    const consent = (form.elements.namedItem('consent') as HTMLInputElement).checked
+    const emailVal = get('email')
+    const digits = phone.replace(/\D/g, '')
+
+    const next = {
+      nome: get('nome') ? '' : 'Campo obrigatório',
+      empresa: get('empresa') ? '' : 'Campo obrigatório',
+      cargo: get('cargo') ? '' : 'Campo obrigatório',
+      email: !emailVal ? 'Campo obrigatório' : !emailRegex.test(emailVal) ? 'E-mail inválido' : '',
+      telefone: !phone ? 'Campo obrigatório' : digits.length < 10 ? 'Telefone inválido' : '',
+      captcha: '',
+      consent: consent ? '' : 'Você precisa aceitar a Política de Privacidade para continuar.',
+    }
+
+    let token = ''
+    try { token = window.grecaptcha?.getResponse?.() ?? '' } catch { token = '' }
+    if (!token) next.captcha = 'Por favor, confirme que você não é um robô.'
+
+    setErrors(next)
+    if (Object.values(next).some(Boolean)) e.preventDefault()
+  }
   const { scrollYProgress } = useScroll({ target: sectionRef, offset: ['start start', 'end start'] })
   const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '30%'])
   const textY = useTransform(scrollYProgress, [0, 1], ['0%', '10%'])
 
   return (
+    <>
+    <Script src="https://www.google.com/recaptcha/api.js" strategy="afterInteractive" />
     <section
       ref={sectionRef}
       className="relative overflow-hidden rounded-bl-[30px] rounded-br-[30px] lg:rounded-bl-[50px] lg:rounded-br-[50px]"
@@ -125,54 +167,45 @@ export function ContatoHero() {
                 </p>
               </div>
             ) : (
-              <form action={formAction} className="flex flex-col gap-5">
+              <form action={formAction} onSubmit={handleSubmit} noValidate className="flex flex-col gap-5">
 
-                <div>
-                  <label htmlFor="nome" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
-                    Nome completo *
-                  </label>
-                  <input
-                    id="nome" name="nome" type="text" required
-                    placeholder="Seu nome completo"
-                    className={inputClass}
-                    style={{ borderRadius: '8px', fontSize: '15px' }}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="empresa" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
-                    Empresa *
-                  </label>
-                  <input
-                    id="empresa" name="empresa" type="text" required
-                    placeholder="Nome da empresa"
-                    className={inputClass}
-                    style={{ borderRadius: '8px', fontSize: '15px' }}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="cargo" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
-                    Cargo *
-                  </label>
-                  <input
-                    id="cargo" name="cargo" type="text" required
-                    placeholder="Seu cargo"
-                    className={inputClass}
-                    style={{ borderRadius: '8px', fontSize: '15px' }}
-                  />
-                </div>
+                {(['nome', 'empresa', 'cargo'] as const).map((name) => (
+                  <div key={name}>
+                    <label htmlFor={name} className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
+                      {name === 'nome' ? 'Nome completo' : name === 'empresa' ? 'Empresa' : 'Cargo'} *
+                    </label>
+                    <input
+                      id={name} name={name} type="text"
+                      placeholder={name === 'nome' ? 'Seu nome completo' : name === 'empresa' ? 'Nome da empresa' : 'Seu cargo'}
+                      className={`${inputClass} ${errors[name] ? 'border-red-400' : ''}`}
+                      style={{ borderRadius: '8px', fontSize: '15px' }}
+                      onBlur={(e) => setErrors(prev => ({ ...prev, [name]: e.target.value ? '' : 'Campo obrigatório' }))}
+                      onChange={() => setErrors(prev => ({ ...prev, [name]: '' }))}
+                    />
+                    {errors[name] && (
+                      <p className="mt-1 font-[family-name:var(--font-inter)] text-red-400 text-xs">{errors[name]}</p>
+                    )}
+                  </div>
+                ))}
 
                 <div>
                   <label htmlFor="email" className="block font-[family-name:var(--font-inter)] font-semibold text-white mb-2" style={{ fontSize: '14px' }}>
                     E-mail corporativo *
                   </label>
                   <input
-                    id="email" name="email" type="email" required
+                    id="email" name="email" type="email"
                     placeholder="seu@empresa.com"
-                    className={inputClass}
+                    className={`${inputClass} ${errors.email ? 'border-red-400' : ''}`}
                     style={{ borderRadius: '8px', fontSize: '15px' }}
+                    onBlur={(e) => {
+                      const v = e.target.value
+                      setErrors(prev => ({ ...prev, email: !v ? 'Campo obrigatório' : !emailRegex.test(v) ? 'E-mail inválido' : '' }))
+                    }}
+                    onChange={() => setErrors(prev => ({ ...prev, email: '' }))}
                   />
+                  {errors.email && (
+                    <p className="mt-1 font-[family-name:var(--font-inter)] text-red-400 text-xs">{errors.email}</p>
+                  )}
                 </div>
 
                 <div>
@@ -180,13 +213,26 @@ export function ContatoHero() {
                     Telefone *
                   </label>
                   <input
-                    id="telefone" name="telefone" type="tel" required
+                    id="telefone" name="telefone" type="tel"
                     placeholder="(00) 00000-0000"
                     value={phone}
-                    onChange={(e) => setPhone(maskPhone(e.target.value))}
-                    className={inputClass}
+                    onChange={(e) => {
+                      setPhone(maskPhone(e.target.value))
+                      setErrors(prev => ({ ...prev, telefone: '' }))
+                    }}
+                    onBlur={() => {
+                      const digits = phone.replace(/\D/g, '')
+                      setErrors(prev => ({
+                        ...prev,
+                        telefone: !phone ? 'Campo obrigatório' : digits.length < 10 ? 'Telefone inválido' : '',
+                      }))
+                    }}
+                    className={`${inputClass} ${errors.telefone ? 'border-red-400' : ''}`}
                     style={{ borderRadius: '8px', fontSize: '15px' }}
                   />
+                  {errors.telefone && (
+                    <p className="mt-1 font-[family-name:var(--font-inter)] text-red-400 text-xs">{errors.telefone}</p>
+                  )}
                 </div>
 
                 <div>
@@ -233,8 +279,22 @@ export function ContatoHero() {
                     e com o tratamento de dados conforme a LGPD.
                   </label>
                 </div>
+                {errors.consent && (
+                  <p className="font-[family-name:var(--font-inter)] text-red-400 text-xs">{errors.consent}</p>
+                )}
 
-                {/* Error message */}
+                {/* reCAPTCHA */}
+                <div>
+                  <div
+                    className="g-recaptcha"
+                    data-sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY}
+                  />
+                  {errors.captcha && (
+                    <p className="mt-2 font-[family-name:var(--font-inter)] text-red-400 text-xs">{errors.captcha}</p>
+                  )}
+                </div>
+
+                {/* Server error */}
                 {state.status === 'error' && (
                   <p className="font-[family-name:var(--font-inter)] text-red-400 text-sm">
                     {state.message}
@@ -266,5 +326,6 @@ export function ContatoHero() {
         </motion.div>
       </div>
     </section>
+    </>
   )
 }
