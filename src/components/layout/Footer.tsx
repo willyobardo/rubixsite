@@ -159,6 +159,23 @@ export function Footer({ data }: FooterProps) {
             <span>Uma empresa do ecossistema </span>
             <strong className="font-bold">ZH3/Brasiliana</strong>
           </p>
+
+          <div className="flex items-center gap-1.5 mt-2">
+            <span
+              className="font-[family-name:var(--font-manrope)] font-normal text-black"
+              style={{ fontSize: 'clamp(11px, 1.1vw, 13px)', lineHeight: 'normal' }}
+            >
+              Desenvolvido por
+            </span>
+            <Image
+              src="/images/zh3-logo.png"
+              alt="ZH3"
+              width={28}
+              height={14}
+              unoptimized
+              className="h-[14px] w-auto opacity-80"
+            />
+          </div>
         </div>
       </div>
     </footer>
