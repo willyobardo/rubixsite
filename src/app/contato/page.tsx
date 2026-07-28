@@ -38,7 +38,7 @@ export default async function ContatoPage() {
                 <>
                   <p>Se preferir, fale conosco pelos canais abaixo.</p>
                   <p><strong className="font-semibold text-brand-navy">Telefone:</strong> +55 (21) 98132-8475</p>
-                  <p><strong className="font-semibold text-brand-navy">E-mail:</strong> contato@rubix.digital</p>
+                  <p><strong className="font-semibold text-brand-navy">E-mail:</strong> contato@rubixdigital.com.br</p>
                   <p><strong className="font-semibold text-brand-navy">Endereço:</strong> Rua Carvalho de Mendonça, 12<br />Copacabana - Rio de Janeiro - RJ</p>
                 </>
               }

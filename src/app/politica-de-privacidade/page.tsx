@@ -76,7 +76,7 @@ export default async function PoliticaDePrivacidadePage() {
                     <p>A Rubix é uma operação especializada em mídia programática e inteligência territorial, integrante do ecossistema ZH3.</p>
                     <p><strong className="text-brand-navy">Endereço:</strong> Rio de Janeiro | São Paulo | Brasília | Fortaleza</p>
                     <p><strong className="text-brand-navy">Telefone:</strong> +55 (21) 98132-8475</p>
-                    <p>Para assuntos relacionados à privacidade e proteção de dados, entre em contato pelo e-mail: <strong className="text-brand-navy">privacidade@rubix.digital</strong></p>
+                    <p>Para assuntos relacionados à privacidade e proteção de dados, entre em contato pelo e-mail: <strong className="text-brand-navy">privacidade@rubixdigital.com.br</strong></p>
                   </Body>
                 </AnimateInView>
 
@@ -136,7 +136,7 @@ export default async function PoliticaDePrivacidadePage() {
                       <Li>Solicitar anonimização, bloqueio ou exclusão</Li>
                       <Li>Revogar consentimento</Li>
                     </ul>
-                    <p className="mt-3">Solicitações podem ser enviadas para: <strong className="text-brand-navy">privacidade@rubix.digital</strong></p>
+                    <p className="mt-3">Solicitações podem ser enviadas para: <strong className="text-brand-navy">privacidade@rubixdigital.com.br</strong></p>
                   </Body>
                 </AnimateInView>
 

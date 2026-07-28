@@ -54,8 +54,8 @@ export async function sendContactEmail(
   }
 
   const { error } = await resend.emails.send({
-    from: 'Formulário Rubix <contato@zh3.com.br>',
-    to: 'contato@zh3.com.br',
+    from: 'Formulário Rubix <contato@rubixdigital.com.br>',
+    to: 'contato@rubixdigital.com.br',
     replyTo: email,
     subject: `Novo contato: ${nome} — ${empresa}`,
     html: `
