@@ -36,7 +36,7 @@ export function Footer({ data }: FooterProps) {
             <div className="flex items-center gap-3" aria-label="Redes sociais">
               {/* Instagram */}
               <Link
-                href="https://instagram.com"
+                href="https://www.instagram.com/rubix.digital?igsh=azZndXc0cjZ2aW9o"
                 aria-label="Instagram da Rubix"
                 target="_blank"
                 rel="noopener noreferrer"
@@ -47,7 +47,7 @@ export function Footer({ data }: FooterProps) {
 
               {/* LinkedIn */}
               <Link
-                href="https://linkedin.com"
+                href="https://www.linkedin.com/company/rubixdigital/about/"
                 aria-label="LinkedIn da Rubix"
                 target="_blank"
                 rel="noopener noreferrer"
